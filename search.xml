@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>hexo常用命令</title>
+      <link href="/2023/08/25/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+      <url>/2023/08/25/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;name&quot;       # 新建文章</span><br><span class="line">hexo new page &quot;name&quot;  # 新建页面</span><br><span class="line">hexo g                # 生成页面</span><br><span class="line">hexo d                # 部署</span><br><span class="line">hexo g -d             # 生成页面并部署</span><br><span class="line">hexo s                # 本地预览</span><br><span class="line">hexo clean            # 清除缓存和已生成的静态文件</span><br><span class="line">hexo help             # 帮助</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>git笔记</title>
+      <link href="/2023/08/25/Git%E7%AC%94%E8%AE%B0/"/>
+      <url>/2023/08/25/Git%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<p><img src="/2023/08/25/Git%E7%AC%94%E8%AE%B0/011500266295799.jpg" alt="img"></p><h2 id="git常用基本命令"><a href="#git常用基本命令" class="headerlink" title="git常用基本命令"></a>git常用基本命令</h2><h3 id="基本操作命令"><a href="#基本操作命令" class="headerlink" title="基本操作命令"></a>基本操作命令</h3><h4 id="初始化仓库"><a href="#初始化仓库" class="headerlink" title="初始化仓库"></a>初始化仓库</h4><ul><li><code>git init</code></li></ul><h4 id="查看当前文件状态"><a href="#查看当前文件状态" class="headerlink" title="查看当前文件状态"></a>查看当前文件状态</h4><ul><li><code>git status</code></li></ul><h4 id="将新增或修改文件提交到暂存区"><a href="#将新增或修改文件提交到暂存区" class="headerlink" title="将新增或修改文件提交到暂存区"></a>将新增或修改文件提交到暂存区</h4><ul><li><code>git add</code></li></ul><h4 id="将修改的文件提交至仓库"><a href="#将修改的文件提交至仓库" class="headerlink" title="将修改的文件提交至仓库"></a>将修改的文件提交至仓库</h4><ul><li><code>git commit</code></li></ul><h4 id="查看提交日志"><a href="#查看提交日志" class="headerlink" title="查看提交日志"></a>查看提交日志</h4><ul><li><code>git log</code> </li><li><code>git-log</code> 自定义查看格式</li></ul><h4 id="查看历史日志"><a href="#查看历史日志" class="headerlink" title="查看历史日志"></a>查看历史日志</h4><ul><li><code>git ref-log</code></li></ul><h4 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h4><ul><li><code>git reset  --hard &lt;CommitID&gt;</code><ul><li>CommitID 需回退的版本号</li></ul></li></ul><h3 id="分支操作命令"><a href="#分支操作命令" class="headerlink" title="分支操作命令"></a>分支操作命令</h3><h4 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h4><ul><li><code>git branch</code></li></ul><h4 id="创建切换分支"><a href="#创建切换分支" class="headerlink" title="创建切换分支"></a>创建切换分支</h4><ul><li><code>git checkout [-b] 分支名</code><ul><li><code>-b</code> 如果分支不存在，则创建该分支再切换到此分支</li></ul></li></ul><h4 id="分支合并"><a href="#分支合并" class="headerlink" title="分支合并"></a>分支合并</h4><ul><li><code>git merge 分支名</code></li></ul><p>注意：&#x3D;&#x3D;首先切换到需要合并的目标分支上面&#x3D;&#x3D;</p><h2 id="Git远程仓库"><a href="#Git远程仓库" class="headerlink" title="Git远程仓库"></a>Git远程仓库</h2><h3 id="Git用户名"><a href="#Git用户名" class="headerlink" title="Git用户名"></a>Git用户名</h3><ul><li>配置Git用户名</li><li><code>git config --global user.name &quot;github 用户名&quot;</code></li><li>获取Git用户名<ul><li><code>git config user.name</code></li></ul></li></ul><h3 id="Git邮箱"><a href="#Git邮箱" class="headerlink" title="Git邮箱"></a>Git邮箱</h3><ul><li>配置Git邮箱<ul><li><code>git config --global user.email &quot;github 注册邮箱&quot;</code></li></ul></li><li>获取Git邮箱<ul><li><code>git config user.email </code></li></ul></li></ul><h3 id="配置SSH公钥"><a href="#配置SSH公钥" class="headerlink" title="配置SSH公钥"></a>配置SSH公钥</h3><h4 id="生成公钥"><a href="#生成公钥" class="headerlink" title="生成公钥"></a>生成公钥</h4><ul><li><code>ssh-keygen -t rsa</code></li><li>不断回车<ul><li>如果公钥已经存在，则自动覆盖</li></ul></li></ul><h4 id="Gitee设置账号共公钥"><a href="#Gitee设置账号共公钥" class="headerlink" title="Gitee设置账号共公钥"></a>Gitee设置账号共公钥</h4><ul><li><p><code>cat ~./ssh/id_rsa.pub</code></p><p><img src="/2023/08/25/Git%E7%AC%94%E8%AE%B0/1692956031765.jpg" alt="image-20230529153732548"></p></li></ul><h4 id="验证是否配置成功"><a href="#验证是否配置成功" class="headerlink" title="验证是否配置成功"></a>验证是否配置成功</h4><ul><li><p><code>ssh -T git@gitee.com</code></p><p><img src="/2023/08/25/Git%E7%AC%94%E8%AE%B0/image-20230825173907321.png" alt="image-20230825173907321"></p></li></ul><h3 id="操作远程仓库"><a href="#操作远程仓库" class="headerlink" title="操作远程仓库"></a>操作远程仓库</h3><h4 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h4><p>​<strong>此操作时先初始化本地库，然后与创建远程库进行对接</strong></p><ul><li>命令：<strong>git remote add &lt;远程名称&gt;&lt;仓库路径&gt;</strong><ul><li>远程名称，默认是origin,取决于远端服务器设置</li><li>仓库路径，从远端服务器获取此URL</li><li>例如：     <code>git remote add origin git@gitee.com:wang-vast/git_test.git</code></li></ul></li></ul><p><img src="/2023/08/25/Git%E7%AC%94%E8%AE%B0/image-20230529155330743.png" alt="image-20230529155330743"></p><h4 id="查看远程仓库"><a href="#查看远程仓库" class="headerlink" title="查看远程仓库"></a>查看远程仓库</h4><ul><li>命令：<code>git remote</code></li></ul><p><img src="/2023/08/25/Git%E7%AC%94%E8%AE%B0/image-20230529155452259.png" alt="image-20230529155452259"></p><h4 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h4><ul><li><p>命令：<code>git push [-f] [--set-upstream] [远程名称 [本地分支名] [:远端分支名] ]</code></p><ul><li><p>如果远程分支名和本地分支名称相同，则可以只写本地分支</p><ul><li><code>git push origin master</code></li></ul></li><li><p><code>-f</code> 表示强制覆盖</p></li><li><p><code>--set-upstream</code> 推送到远端的同时并且建立起和远端分支的管理关系</p><ul><li><code>git push --set-upstream origin master</code></li></ul></li><li><p>如果<strong>当前分支已经和远程分支关联</strong>，则可以省略分支名和远程名</p><ul><li><code>git push</code> 将master分支推送到已关联的远端分支</li></ul></li></ul></li></ul><h4 id="本地分支与远程分支的关联关系"><a href="#本地分支与远程分支的关联关系" class="headerlink" title="本地分支与远程分支的关联关系"></a>本地分支与远程分支的关联关系</h4><ul><li><p>查看关联关系可以使用 <code>git branch -vv</code> 命令</p><p><img src="/2023/08/25/Git%E7%AC%94%E8%AE%B0/image-20230529161212824.png" alt="image-20230529161212824"></p></li></ul><h4 id="从远程仓库克隆"><a href="#从远程仓库克隆" class="headerlink" title="从远程仓库克隆"></a>从远程仓库克隆</h4><p>如果已经有一个远程仓库，我们可以之间clone到本地</p><ul><li>命令：<code>git clone &lt;仓库路径&gt; [本地目录]</code><ul><li>本地目录可以省略，会自动生成一个目录</li></ul></li></ul><p><img src="/2023/08/25/Git%E7%AC%94%E8%AE%B0/image-20230529161802688.png" alt="image-20230529161802688"></p><h4 id="从远程仓库拉取代码"><a href="#从远程仓库拉取代码" class="headerlink" title="从远程仓库拉取代码"></a>从远程仓库拉取代码</h4><p>远程分支和本地份额之一样，我们可以进行<code>merge</code>操作，知识需要先把远程仓库里的更新都下载到本地，再进行操作。</p><ul><li><strong>抓取命令</strong>：<code>git fetch [remote name] [branch name]</code><ul><li><strong>抓取指令就是将仓库里的更新都抓取到本地，不会进行合并</strong></li><li>如果不指定远程名称和分支名，则抓取所有分支</li></ul></li><li><strong>拉取命令</strong>：<code>git pull [remote name] [branch name]</code><ul><li><strong>拉取指令就是将远程仓库的修改拉到本地并自动进行合并，等同于 <code>fetch-merge</code></strong></li><li>如果不指定远程名称和分支名，则抓取所有并更新当前分支</li></ul></li></ul><h4 id="解决合并冲突"><a href="#解决合并冲突" class="headerlink" title="解决合并冲突"></a>解决合并冲突</h4><p>在一段时间，A、B用户修改同一个文件，且修改了同一行位置的代码，此时发送合并冲突。</p><p>A用户在本地修后代码后优先推送到远程仓库，此时B用户在本地修订代码，提交到本地仓库后，也需要推送到远程仓库，此时B用户晚于A用户，<strong>故需要先拉取远程仓库的提交，经过合并后才能推到远端分支</strong>，如下图所示。</p><p><img src="/2023/08/25/Git%E7%AC%94%E8%AE%B0/image-20230529164036543.png" alt="image-20230529164036543"></p><p>在B用户拉取代码是，因为A、B用户同一段时间修改同一个文件的相同位置代码，故会发生合并冲突。</p><p><strong>远程分支也是分支，所有合并时冲突的解决方式和解决本地分支冲突相同</strong></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2023/08/24/hello-world/"/>
+      <url>/2023/08/24/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
