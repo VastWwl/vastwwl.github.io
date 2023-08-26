@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>微服务面试题</title>
+      <link href="/2023/08/26/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+      <url>/2023/08/26/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h1 id="微服务面试题"><a href="#微服务面试题" class="headerlink" title="微服务面试题"></a>微服务面试题</h1><h2 id="SpringCloud常见组件有哪些？"><a href="#SpringCloud常见组件有哪些？" class="headerlink" title="SpringCloud常见组件有哪些？"></a>SpringCloud常见组件有哪些？</h2><p><strong>问题说明</strong>：这个题目主要考察对SpringCloud的组件基本了解</p><p><strong>难易程度</strong>：简单</p><p><strong>参考话术</strong>：</p><p>SpringCloud包含的组件很多，有很多功能是重复的。其中最常用组件包括：</p><ul><li><p>注册中心组件：Eureka、Nacos等</p></li><li><p>负载均衡组件：Ribbon</p></li><li><p>远程调用组件：OpenFeign</p></li><li><p>网关组件：Zuul、Gateway</p></li><li><p>服务保护组件：Hystrix、Sentinel</p></li><li><p>服务配置管理组件：SpringCloudConfig、Nacos</p></li></ul><h2 id="Nacos的服务注册表结构是怎样的？"><a href="#Nacos的服务注册表结构是怎样的？" class="headerlink" title="Nacos的服务注册表结构是怎样的？"></a>Nacos的服务注册表结构是怎样的？</h2><p><strong>问题说明</strong>：考察对Nacos数据分级结构的了解，以及Nacos源码的掌握情况</p><p><strong>难易程度</strong>：一般</p><p><strong>参考话术</strong>：</p><p>Nacos采用了数据的分级存储模型，最外层是Namespace，用来隔离环境。然后是Group，用来对服务分组。接下来就是服务（Service）了，一个服务包含多个实例，但是可能处于不同机房，因此Service下有多个集群（Cluster），Cluster下是不同的实例（Instance）。</p><p>对应到Java代码中，Nacos采用了一个多层的Map来表示。结构为Map&lt;String, Map&lt;String, Service&gt;&gt;，其中最外层Map的key就是namespaceId，值是一个Map。内层Map的key是group拼接serviceName，值是Service对象。Service对象内部又是一个Map，key是集群名称，值是Cluster对象。而Cluster对象内部维护了Instance的集合。</p><p>如图：</p><p><img src="/2023/08/26/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%9D%A2%E8%AF%95%E9%A2%98/image-20210925215305446.png" alt="image-20210925215305446"></p><h2 id="Nacos如何支撑阿里内部数十万服务注册压力？"><a href="#Nacos如何支撑阿里内部数十万服务注册压力？" class="headerlink" title="Nacos如何支撑阿里内部数十万服务注册压力？"></a>Nacos如何支撑阿里内部数十万服务注册压力？</h2><p><strong>问题说明</strong>：考察对Nacos源码的掌握情况</p><p><strong>难易程度</strong>：难</p><p><strong>参考话术</strong>：</p><p>Nacos内部接收到注册的请求时，不会立即写数据，而是将服务注册的任务放入一个阻塞队列就立即响应给客户端。然后利用线程池读取阻塞队列中的任务，异步来完成实例更新，从而提高并发写能力。</p><h2 id="Nacos如何避免并发读写冲突问题？"><a href="#Nacos如何避免并发读写冲突问题？" class="headerlink" title="Nacos如何避免并发读写冲突问题？"></a>Nacos如何避免并发读写冲突问题？</h2><p><strong>问题说明</strong>：考察对Nacos源码的掌握情况</p><p><strong>难易程度</strong>：难</p><p><strong>参考话术</strong>：</p><p>Nacos在更新实例列表时，会采用CopyOnWrite技术，首先将旧的实例列表拷贝一份，然后更新拷贝的实例列表，再用更新后的实例列表来覆盖旧的实例列表。</p><p>这样在更新的过程中，就不会对读实例列表的请求产生影响，也不会出现脏读问题了。</p><h2 id="Nacos与Eureka的区别有哪些？"><a href="#Nacos与Eureka的区别有哪些？" class="headerlink" title="Nacos与Eureka的区别有哪些？"></a>Nacos与Eureka的区别有哪些？</h2><p><strong>问题说明</strong>：考察对Nacos、Eureka的底层实现的掌握情况</p><p><strong>难易程度</strong>：难</p><p><strong>参考话术</strong>：</p><p>Nacos与Eureka有相同点，也有不同之处，可以从以下几点来描述：</p><ul><li><strong>接口方式</strong>：Nacos与Eureka都对外暴露了Rest风格的API接口，用来实现服务注册、发现等功能</li><li><strong>实例类型</strong>：Nacos的实例有永久和临时实例之分；而Eureka只支持临时实例</li><li><strong>健康检测</strong>：Nacos对临时实例采用心跳模式检测，对永久实例采用主动请求来检测；Eureka只支持心跳模式</li><li><strong>服务发现</strong>：Nacos支持定时拉取和订阅推送两种模式；Eureka只支持定时拉取模式</li></ul><h2 id="Sentinel的限流与Gateway的限流有什么差别？"><a href="#Sentinel的限流与Gateway的限流有什么差别？" class="headerlink" title="Sentinel的限流与Gateway的限流有什么差别？"></a>Sentinel的限流与Gateway的限流有什么差别？</h2><p><strong>问题说明</strong>：考察对限流算法的掌握情况</p><p><strong>难易程度</strong>：难</p><p><strong>参考话术</strong>：</p><p>限流算法常见的有三种实现：滑动时间窗口、令牌桶算法、漏桶算法。Gateway则采用了基于Redis实现的令牌桶算法。</p><p>而Sentinel内部却比较复杂：</p><ul><li>默认限流模式是基于滑动时间窗口算法</li><li>排队等待的限流模式则基于漏桶算法</li><li>而热点参数限流则是基于令牌桶算法</li></ul><h2 id="Sentinel的线程隔离与Hystix的线程隔离有什么差别"><a href="#Sentinel的线程隔离与Hystix的线程隔离有什么差别" class="headerlink" title="Sentinel的线程隔离与Hystix的线程隔离有什么差别?"></a>Sentinel的线程隔离与Hystix的线程隔离有什么差别?</h2><p><strong>问题说明</strong>：考察对线程隔离方案的掌握情况</p><p><strong>难易程度</strong>：一般</p><p><strong>参考话术</strong>：</p><p>Hystix默认是基于线程池实现的线程隔离，每一个被隔离的业务都要创建一个独立的线程池，线程过多会带来额外的CPU开销，性能一般，但是隔离性更强。</p><p>Sentinel是基于信号量（计数器）实现的线程隔离，不用创建线程池，性能较好，但是隔离性一般。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面试题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hexo常用命令</title>
       <link href="/2023/08/25/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
       <url>/2023/08/25/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
@@ -17,17 +42,23 @@
     
     
     <entry>
-      <title>Hello World</title>
+      <title>Git笔记</title>
       <link href="/2023/08/25/Git%E7%AC%94%E8%AE%B0/"/>
       <url>/2023/08/25/Git%E7%AC%94%E8%AE%B0/</url>
       
         <content type="html"><![CDATA[<p><img src="/2023/08/25/Git%E7%AC%94%E8%AE%B0/011500266295799.jpg" alt="img"></p><h2 id="git常用基本命令"><a href="#git常用基本命令" class="headerlink" title="git常用基本命令"></a>git常用基本命令</h2><h3 id="基本操作命令"><a href="#基本操作命令" class="headerlink" title="基本操作命令"></a>基本操作命令</h3><h4 id="初始化仓库"><a href="#初始化仓库" class="headerlink" title="初始化仓库"></a>初始化仓库</h4><ul><li><code>git init</code></li></ul><h4 id="查看当前文件状态"><a href="#查看当前文件状态" class="headerlink" title="查看当前文件状态"></a>查看当前文件状态</h4><ul><li><code>git status</code></li></ul><h4 id="将新增或修改文件提交到暂存区"><a href="#将新增或修改文件提交到暂存区" class="headerlink" title="将新增或修改文件提交到暂存区"></a>将新增或修改文件提交到暂存区</h4><ul><li><code>git add</code></li></ul><h4 id="将修改的文件提交至仓库"><a href="#将修改的文件提交至仓库" class="headerlink" title="将修改的文件提交至仓库"></a>将修改的文件提交至仓库</h4><ul><li><code>git commit</code></li></ul><h4 id="查看提交日志"><a href="#查看提交日志" class="headerlink" title="查看提交日志"></a>查看提交日志</h4><ul><li><code>git log</code> </li><li><code>git-log</code> 自定义查看格式</li></ul><h4 id="查看历史日志"><a href="#查看历史日志" class="headerlink" title="查看历史日志"></a>查看历史日志</h4><ul><li><code>git ref-log</code></li></ul><h4 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h4><ul><li><code>git reset  --hard &lt;CommitID&gt;</code><ul><li>CommitID 需回退的版本号</li></ul></li></ul><h3 id="分支操作命令"><a href="#分支操作命令" class="headerlink" title="分支操作命令"></a>分支操作命令</h3><h4 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h4><ul><li><code>git branch</code></li></ul><h4 id="创建切换分支"><a href="#创建切换分支" class="headerlink" title="创建切换分支"></a>创建切换分支</h4><ul><li><code>git checkout [-b] 分支名</code><ul><li><code>-b</code> 如果分支不存在，则创建该分支再切换到此分支</li></ul></li></ul><h4 id="分支合并"><a href="#分支合并" class="headerlink" title="分支合并"></a>分支合并</h4><ul><li><code>git merge 分支名</code></li></ul><p>注意：&#x3D;&#x3D;首先切换到需要合并的目标分支上面&#x3D;&#x3D;</p><h2 id="Git远程仓库"><a href="#Git远程仓库" class="headerlink" title="Git远程仓库"></a>Git远程仓库</h2><h3 id="Git用户名"><a href="#Git用户名" class="headerlink" title="Git用户名"></a>Git用户名</h3><ul><li>配置Git用户名</li><li><code>git config --global user.name &quot;github 用户名&quot;</code></li><li>获取Git用户名<ul><li><code>git config user.name</code></li></ul></li></ul><h3 id="Git邮箱"><a href="#Git邮箱" class="headerlink" title="Git邮箱"></a>Git邮箱</h3><ul><li>配置Git邮箱<ul><li><code>git config --global user.email &quot;github 注册邮箱&quot;</code></li></ul></li><li>获取Git邮箱<ul><li><code>git config user.email </code></li></ul></li></ul><h3 id="配置SSH公钥"><a href="#配置SSH公钥" class="headerlink" title="配置SSH公钥"></a>配置SSH公钥</h3><h4 id="生成公钥"><a href="#生成公钥" class="headerlink" title="生成公钥"></a>生成公钥</h4><ul><li><code>ssh-keygen -t rsa</code></li><li>不断回车<ul><li>如果公钥已经存在，则自动覆盖</li></ul></li></ul><h4 id="Gitee设置账号共公钥"><a href="#Gitee设置账号共公钥" class="headerlink" title="Gitee设置账号共公钥"></a>Gitee设置账号共公钥</h4><ul><li><p><code>cat ~./ssh/id_rsa.pub</code></p><p><img src="/2023/08/25/Git%E7%AC%94%E8%AE%B0/1692956031765.jpg" alt="image-20230529153732548"></p></li></ul><h4 id="验证是否配置成功"><a href="#验证是否配置成功" class="headerlink" title="验证是否配置成功"></a>验证是否配置成功</h4><ul><li><p><code>ssh -T git@gitee.com</code></p><p><img src="/2023/08/25/Git%E7%AC%94%E8%AE%B0/image-20230825173907321.png" alt="image-20230825173907321"></p></li></ul><h3 id="操作远程仓库"><a href="#操作远程仓库" class="headerlink" title="操作远程仓库"></a>操作远程仓库</h3><h4 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h4><p>​<strong>此操作时先初始化本地库，然后与创建远程库进行对接</strong></p><ul><li>命令：<strong>git remote add &lt;远程名称&gt;&lt;仓库路径&gt;</strong><ul><li>远程名称，默认是origin,取决于远端服务器设置</li><li>仓库路径，从远端服务器获取此URL</li><li>例如：     <code>git remote add origin git@gitee.com:wang-vast/git_test.git</code></li></ul></li></ul><p><img src="/2023/08/25/Git%E7%AC%94%E8%AE%B0/image-20230529155330743.png" alt="image-20230529155330743"></p><h4 id="查看远程仓库"><a href="#查看远程仓库" class="headerlink" title="查看远程仓库"></a>查看远程仓库</h4><ul><li>命令：<code>git remote</code></li></ul><p><img src="/2023/08/25/Git%E7%AC%94%E8%AE%B0/image-20230529155452259.png" alt="image-20230529155452259"></p><h4 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h4><ul><li><p>命令：<code>git push [-f] [--set-upstream] [远程名称 [本地分支名] [:远端分支名] ]</code></p><ul><li><p>如果远程分支名和本地分支名称相同，则可以只写本地分支</p><ul><li><code>git push origin master</code></li></ul></li><li><p><code>-f</code> 表示强制覆盖</p></li><li><p><code>--set-upstream</code> 推送到远端的同时并且建立起和远端分支的管理关系</p><ul><li><code>git push --set-upstream origin master</code></li></ul></li><li><p>如果<strong>当前分支已经和远程分支关联</strong>，则可以省略分支名和远程名</p><ul><li><code>git push</code> 将master分支推送到已关联的远端分支</li></ul></li></ul></li></ul><h4 id="本地分支与远程分支的关联关系"><a href="#本地分支与远程分支的关联关系" class="headerlink" title="本地分支与远程分支的关联关系"></a>本地分支与远程分支的关联关系</h4><ul><li><p>查看关联关系可以使用 <code>git branch -vv</code> 命令</p><p><img src="/2023/08/25/Git%E7%AC%94%E8%AE%B0/image-20230529161212824.png" alt="image-20230529161212824"></p></li></ul><h4 id="从远程仓库克隆"><a href="#从远程仓库克隆" class="headerlink" title="从远程仓库克隆"></a>从远程仓库克隆</h4><p>如果已经有一个远程仓库，我们可以之间clone到本地</p><ul><li>命令：<code>git clone &lt;仓库路径&gt; [本地目录]</code><ul><li>本地目录可以省略，会自动生成一个目录</li></ul></li></ul><p><img src="/2023/08/25/Git%E7%AC%94%E8%AE%B0/image-20230529161802688.png" alt="image-20230529161802688"></p><h4 id="从远程仓库拉取代码"><a href="#从远程仓库拉取代码" class="headerlink" title="从远程仓库拉取代码"></a>从远程仓库拉取代码</h4><p>远程分支和本地份额之一样，我们可以进行<code>merge</code>操作，知识需要先把远程仓库里的更新都下载到本地，再进行操作。</p><ul><li><strong>抓取命令</strong>：<code>git fetch [remote name] [branch name]</code><ul><li><strong>抓取指令就是将仓库里的更新都抓取到本地，不会进行合并</strong></li><li>如果不指定远程名称和分支名，则抓取所有分支</li></ul></li><li><strong>拉取命令</strong>：<code>git pull [remote name] [branch name]</code><ul><li><strong>拉取指令就是将远程仓库的修改拉到本地并自动进行合并，等同于 <code>fetch-merge</code></strong></li><li>如果不指定远程名称和分支名，则抓取所有并更新当前分支</li></ul></li></ul><h4 id="解决合并冲突"><a href="#解决合并冲突" class="headerlink" title="解决合并冲突"></a>解决合并冲突</h4><p>在一段时间，A、B用户修改同一个文件，且修改了同一行位置的代码，此时发送合并冲突。</p><p>A用户在本地修后代码后优先推送到远程仓库，此时B用户在本地修订代码，提交到本地仓库后，也需要推送到远程仓库，此时B用户晚于A用户，<strong>故需要先拉取远程仓库的提交，经过合并后才能推到远端分支</strong>，如下图所示。</p><p><img src="/2023/08/25/Git%E7%AC%94%E8%AE%B0/image-20230529164036543.png" alt="image-20230529164036543"></p><p>在B用户拉取代码是，因为A、B用户同一段时间修改同一个文件的相同位置代码，故会发生合并冲突。</p><p><strong>远程分支也是分支，所有合并时冲突的解决方式和解决本地分支冲突相同</strong></p>]]></content>
       
       
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
       
         <tags>
             
-            <tag> hello </tag>
+            <tag> 笔记 </tag>
             
         </tags>
       
