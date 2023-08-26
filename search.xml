@@ -4,6 +4,32 @@
   
     
     <entry>
+      <title>Redis面试题</title>
+      <link href="/2023/08/26/Redis%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+      <url>/2023/08/26/Redis%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>RabbitMQ面试题</title>
+      <link href="/2023/08/26/RabbitMQ%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+      <url>/2023/08/26/RabbitMQ%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>微服务面试题</title>
       <link href="/2023/08/26/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
       <url>/2023/08/26/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
@@ -30,10 +56,10 @@
     
     <entry>
       <title>hexo常用命令</title>
-      <link href="/2023/08/25/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-      <url>/2023/08/25/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+      <link href="/2023/08/25/hexo%E7%AC%94%E8%AE%B0/"/>
+      <url>/2023/08/25/hexo%E7%AC%94%E8%AE%B0/</url>
       
-        <content type="html"><![CDATA[<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;name&quot;       # 新建文章</span><br><span class="line">hexo new page &quot;name&quot;  # 新建页面</span><br><span class="line">hexo g                # 生成页面</span><br><span class="line">hexo d                # 部署</span><br><span class="line">hexo g -d             # 生成页面并部署</span><br><span class="line">hexo s                # 本地预览</span><br><span class="line">hexo clean            # 清除缓存和已生成的静态文件</span><br><span class="line">hexo help             # 帮助</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h2 id="Hexo学习笔记"><a href="#Hexo学习笔记" class="headerlink" title="Hexo学习笔记"></a>Hexo学习笔记</h2><h3 id="Hexo常用命令"><a href="#Hexo常用命令" class="headerlink" title="Hexo常用命令"></a>Hexo常用命令</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;name&quot;       # 新建文章</span><br><span class="line">hexo new page &quot;name&quot;  # 新建页面</span><br><span class="line">hexo g                # 生成页面</span><br><span class="line">hexo d                # 部署</span><br><span class="line">hexo g -d             # 生成页面并部署</span><br><span class="line">hexo s                # 本地预览</span><br><span class="line">hexo clean            # 清除缓存和已生成的静态文件</span><br><span class="line">hexo help             # 帮助</span><br></pre></td></tr></table></figure><h3 id="配置图床："><a href="#配置图床：" class="headerlink" title="配置图床："></a>配置图床：</h3><p><strong>Picgo地址</strong>：<a href="https://github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></p><p><img src="https://cdn.jsdelivr.net/gh/VastWwl/blog_img//img/202308261536629.png" alt="image-20230826153631789"></p><p><strong>解析:</strong></p><ul><li><strong>图床配置名</strong>：自定义名称</li><li><strong>设置仓库名</strong>：填写刚创建好的github仓库名</li><li><strong>设定分支名</strong>：github现默认分支 <code>main</code></li><li><strong>设定Token</strong>：粘贴刚复制的token</li><li><strong>设定存储路径</strong>：自定义即可</li><li><strong>设置自定义域名</strong>：<ul><li><code>https://cdn.jsdelivr.net/gh/用户名/仓库名</code></li></ul></li></ul>]]></content>
       
       
       
