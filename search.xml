@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>butterfly主题魔化右键菜单</title>
+      <link href="/2023/08/29/butterfly%E4%B8%BB%E9%A2%98%E9%AD%94%E5%8C%96%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/"/>
+      <url>/2023/08/29/butterfly%E4%B8%BB%E9%A2%98%E9%AD%94%E5%8C%96%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="一、DOM-结构"><a href="#一、DOM-结构" class="headerlink" title="一、DOM 结构"></a>一、DOM 结构</h1><p>123</p><h1 id="二、CSS-样式"><a href="#二、CSS-样式" class="headerlink" title="二、CSS 样式"></a>二、CSS 样式</h1><h1 id="三、JS-脚本"><a href="#三、JS-脚本" class="headerlink" title="三、JS 脚本"></a>三、JS 脚本</h1><h1 id="四、引入文件查看效果"><a href="#四、引入文件查看效果" class="headerlink" title="四、引入文件查看效果"></a>四、引入文件查看效果</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> hexo学习日记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> butterfly </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hexo图床设置</title>
       <link href="/2023/08/29/hexo%E5%9B%BE%E5%BA%8A%E8%AE%BE%E7%BD%AE/"/>
       <url>/2023/08/29/hexo%E5%9B%BE%E5%BA%8A%E8%AE%BE%E7%BD%AE/</url>
