@@ -1537,14 +1537,14 @@ blockquote > :last-child {
   margin-bottom: 0 !important;
 }
 :root {
-  --hl-color: #eff;
-  --hl-bg: #212121;
-  --hltools-bg: #1c1c1c;
-  --hltools-color: rgba(238,255,255,0.8);
-  --hlnumber-bg: #212121;
-  --hlnumber-color: rgba(238,255,255,0.5);
-  --hlscrollbar-bg: #353535;
-  --hlexpand-bg: linear-gradient(180deg, rgba(33,33,33,0.6), rgba(33,33,33,0.9));
+  --hl-color: #a6accd;
+  --hl-bg: #292d3e;
+  --hltools-bg: #252938;
+  --hltools-color: #a6accd;
+  --hlnumber-bg: #292d3e;
+  --hlnumber-color: rgba(166,172,205,0.5);
+  --hlscrollbar-bg: #393f57;
+  --hlexpand-bg: linear-gradient(180deg, rgba(41,45,62,0.6), rgba(41,45,62,0.9));
 }
 figure.highlight table {
   scrollbar-color: var(--hlscrollbar-bg) transparent;
@@ -1562,7 +1562,7 @@ figure.highlight pre .meta {
   color: #c792ea;
 }
 figure.highlight pre .comment {
-  color: #969896;
+  color: #676e95;
 }
 figure.highlight pre .variable,
 figure.highlight pre .attribute,
@@ -1625,7 +1625,7 @@ figure.highlight pre .javascript .function {
   color: #c792ea;
 }
 #article-container figure.highlight .line.marked {
-  background-color: rgba(97,97,97,0.314);
+  background-color: rgba(113,124,180,0.314);
 }
 #article-container figure.highlight table {
   display: block;
@@ -1810,47 +1810,40 @@ figure.highlight pre .javascript .function {
 #article-container .gist table td {
   border: none;
 }
-#article-container figure.highlight {
-  margin: 0 0 24px;
-  border-radius: 7px;
-  -webkit-box-shadow: 0 5px 10px 0 rgba(0,0,0,0.4);
-  box-shadow: 0 5px 10px 0 rgba(0,0,0,0.4);
-  -webkit-transform: translateZ(0);
-}
-#article-container figure.highlight .highlight-tools:after {
+#article-container .code-expand-btn {
   position: absolute;
-  left: 14px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #fc625d;
-  -webkit-box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
-  box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
-  content: ' ';
+  bottom: 0;
+  z-index: 10;
+  width: 100%;
+  background: var(--hlexpand-bg);
+  text-align: center;
+  font-size: var(--global-font-size);
+  cursor: pointer;
 }
-#article-container figure.highlight .highlight-tools .expand {
-  right: 0;
+#article-container .code-expand-btn i {
+  padding: 6px 0;
+  color: var(--hlnumber-color);
+  -webkit-animation: code-expand-key 1.2s infinite;
+  -moz-animation: code-expand-key 1.2s infinite;
+  -o-animation: code-expand-key 1.2s infinite;
+  -ms-animation: code-expand-key 1.2s infinite;
+  animation: code-expand-key 1.2s infinite;
 }
-#article-container figure.highlight .highlight-tools .expand.closed {
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  transition: all 0.3s;
-  -webkit-transform: rotate(90deg) !important;
-  -moz-transform: rotate(90deg) !important;
-  -o-transform: rotate(90deg) !important;
-  -ms-transform: rotate(90deg) !important;
-  transform: rotate(90deg) !important;
+#article-container .code-expand-btn.expand-done > i {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
-#article-container figure.highlight .highlight-tools .expand ~ .copy-notice {
-  right: 3.45em;
+#article-container .code-expand-btn.expand-done + table,
+#article-container .code-expand-btn.expand-done + pre {
+  margin-bottom: 1.8em;
 }
-#article-container figure.highlight .highlight-tools .expand ~ .copy-button {
-  right: 2.1em;
-}
-#article-container figure.highlight .highlight-tools .code-lang {
-  left: 75px;
+#article-container .code-expand-btn:not(.expand-done) ~ table,
+#article-container .code-expand-btn:not(.expand-done) ~ pre {
+  overflow: hidden;
+  height: 120px;
 }
 @-moz-keyframes code-expand-key {
   0% {
@@ -2443,6 +2436,9 @@ figure.highlight pre .javascript .function {
 }
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap .article-meta-link {
   margin: 0 4px;
+}
+#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap time {
+  display: none;
 }
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap a {
   color: #858585;
@@ -3532,6 +3528,9 @@ h1.page-title + .tag-cloud-list {
 #post-info #post-meta a:hover {
   color: #49b1f5;
   text-decoration: underline;
+}
+#post-info #post-meta time {
+  display: none;
 }
 #nav {
   position: absolute;
@@ -5916,91 +5915,97 @@ blockquote.pullquote.right {
   background-color: rgba(0,0,0,0.7);
   content: '';
 }
-[data-theme='dark'] #article-container code {
+#web_bg {
+  background-image: url("/img/images/wallpaper-dark.jpg");
+  background-size: 100% 100%;
+  background-size: cover;
+  background-repeat: no-repeat center;
+}
+#article-container code {
   background: #2c2c2c;
 }
-[data-theme='dark'] #article-container pre > code {
+#article-container pre > code {
   background: #171717;
 }
-[data-theme='dark'] #article-container figure.highlight {
+#article-container figure.highlight {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-[data-theme='dark'] #article-container .note code {
+#article-container .note code {
   background: rgba(27,31,35,0.05);
 }
-[data-theme='dark'] #article-container .aplayer {
+#article-container .aplayer {
   filter: brightness(0.8);
 }
-[data-theme='dark'] #article-container kbd {
+#article-container kbd {
   border-color: #696969;
   background-color: #525252;
   color: #e2f1ff;
 }
-[data-theme='dark'] #page-header.nav-fixed > #nav,
-[data-theme='dark'] #page-header.not-top-img > #nav {
+#page-header.nav-fixed > #nav,
+#page-header.not-top-img > #nav {
   background: rgba(18,18,18,0.8);
   -webkit-box-shadow: 0 5px 6px -5px rgba(133,133,133,0);
   box-shadow: 0 5px 6px -5px rgba(133,133,133,0);
 }
-[data-theme='dark'] #post-comment #comment-switch {
+#post-comment #comment-switch {
   background: #2c2c2c !important;
 }
-[data-theme='dark'] #post-comment #comment-switch .switch-btn {
+#post-comment #comment-switch .switch-btn {
   filter: brightness(0.8);
 }
-[data-theme='dark'] .note {
+.note {
   filter: brightness(0.8);
 }
-[data-theme='dark'] .hide-button,
-[data-theme='dark'] .btn-beautify,
-[data-theme='dark'] .hl-label,
-[data-theme='dark'] .post-outdate-notice,
-[data-theme='dark'] .error-img,
-[data-theme='dark'] #article-container iframe,
-[data-theme='dark'] .gist,
-[data-theme='dark'] .ads-wrap {
+.hide-button,
+.btn-beautify,
+.hl-label,
+.post-outdate-notice,
+.error-img,
+#article-container iframe,
+.gist,
+.ads-wrap {
   filter: brightness(0.8);
 }
-[data-theme='dark'] img {
+img {
   filter: brightness(0.8);
 }
-[data-theme='dark'] #aside-content .aside-list > .aside-list-item:not(:last-child) {
+#aside-content .aside-list > .aside-list-item:not(:last-child) {
   border-bottom: 1px dashed rgba(255,255,255,0.1);
 }
-[data-theme='dark'] #gitalk-container {
+#gitalk-container {
   filter: brightness(0.8);
 }
-[data-theme='dark'] #gitalk-container svg {
+#gitalk-container svg {
   fill: rgba(255,255,255,0.9) !important;
 }
-[data-theme='dark'] #disqusjs #dsqjs:hover,
-[data-theme='dark'] #disqusjs #dsqjs:focus,
-[data-theme='dark'] #disqusjs #dsqjs .dsqjs-tab-active,
-[data-theme='dark'] #disqusjs #dsqjs .dsqjs-no-comment {
+#disqusjs #dsqjs:hover,
+#disqusjs #dsqjs:focus,
+#disqusjs #dsqjs .dsqjs-tab-active,
+#disqusjs #dsqjs .dsqjs-no-comment {
   color: rgba(255,255,255,0.7);
 }
-[data-theme='dark'] #disqusjs #dsqjs .dsqjs-order-label {
+#disqusjs #dsqjs .dsqjs-order-label {
   background-color: #1f1f1f;
 }
-[data-theme='dark'] #disqusjs #dsqjs .dsqjs-post-body {
+#disqusjs #dsqjs .dsqjs-post-body {
   color: rgba(255,255,255,0.7);
 }
-[data-theme='dark'] #disqusjs #dsqjs .dsqjs-post-body code,
-[data-theme='dark'] #disqusjs #dsqjs .dsqjs-post-body pre {
+#disqusjs #dsqjs .dsqjs-post-body code,
+#disqusjs #dsqjs .dsqjs-post-body pre {
   background: #2c2c2c;
 }
-[data-theme='dark'] #disqusjs #dsqjs .dsqjs-post-body blockquote {
+#disqusjs #dsqjs .dsqjs-post-body blockquote {
   color: rgba(255,255,255,0.7);
 }
-[data-theme='dark'] #artitalk_main #lazy {
+#artitalk_main #lazy {
   background: #121212;
 }
-[data-theme='dark'] #operare_artitalk .c2 {
+#operare_artitalk .c2 {
   background: #121212;
 }
 @media screen and (max-width: 900px) {
-  [data-theme='dark'] #card-toc {
+  #card-toc {
     background: #1f1f1f;
   }
 }
