@@ -477,9 +477,9 @@
       
         <tags>
             
-            <tag> Gateway </tag>
-            
             <tag> 微服务 </tag>
+            
+            <tag> Gateway </tag>
             
         </tags>
       
@@ -504,9 +504,9 @@
       
         <tags>
             
-            <tag> 微服务 </tag>
-            
             <tag> Feign </tag>
+            
+            <tag> 微服务 </tag>
             
         </tags>
       
