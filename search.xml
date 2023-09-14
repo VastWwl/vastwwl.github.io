@@ -392,11 +392,11 @@
       
         <tags>
             
-            <tag> 微服务 </tag>
-            
             <tag> Docker </tag>
             
             <tag> Dockerfile </tag>
+            
+            <tag> 微服务 </tag>
             
         </tags>
       
@@ -421,9 +421,9 @@
       
         <tags>
             
-            <tag> 微服务 </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> 微服务 </tag>
             
             <tag> 安装指南 </tag>
             
@@ -450,9 +450,9 @@
       
         <tags>
             
-            <tag> 微服务 </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> 微服务 </tag>
             
         </tags>
       
@@ -477,9 +477,9 @@
       
         <tags>
             
-            <tag> Gateway </tag>
-            
             <tag> 微服务 </tag>
+            
+            <tag> Gateway </tag>
             
         </tags>
       
@@ -785,9 +785,9 @@
       
         <tags>
             
-            <tag> Redis </tag>
-            
             <tag> 面试题 </tag>
+            
+            <tag> Redis </tag>
             
         </tags>
       
